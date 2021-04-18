@@ -13,7 +13,7 @@
 ## [Description](#description)
 This is a command line node.js application that takes in information employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.
 
-![This is the gif for the application](Assets/Screen Shot 2021-04-17 at 11.52.55 PM.png)`
+![This is the screenshot for the application](Assets/teamProfileGen.png)`
 
 ## [License](#license)
 This project is licensed under: 
