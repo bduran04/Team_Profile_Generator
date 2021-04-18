@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Employee = require('./lib/employee.js');
-const Manager = require('./lib/manager.js');
-const Engineer = require('./lib/engineer.js');
-const Intern = require('./lib/intern.js');
+const Employee = require('./lib/employee');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
 const generateHTML = require('./src/page_template');
 
 const employees = [];
@@ -55,7 +55,8 @@ function engineerQuestions() {
             choices: ['Engineer', 'Intern', 'None'],
         }
     ])
-        .then(answer) => {
+
+        .then((answer) => {
         const engineer = new Engineer(answer.engineerName, answer.engineerId, answer.engineerEmail, answer.github);
         employees.push(engineer);
         if (answer.anotherRoleToAdd === 'Engineer') {
@@ -67,8 +68,8 @@ function engineerQuestions() {
         else {
             writeTheFile('index.html', generateHTML(employees))
         }
-    }
-};
+    });
+}
 
 function internQuestions() {
     inquirer.prompt([
@@ -95,7 +96,7 @@ function internQuestions() {
             choices: ['Engineer', 'Intern', 'None'],
         }
     ])
-        .then(answer) => {
+        .then((answer) => {
         const intern = new Intern(answer.internName, answer.internId, answer.internEmail, answer.school);
         employees.push(intern);
         if (answer.anotherRoleToAdd === 'Engineer') {
@@ -110,17 +111,18 @@ function internQuestions() {
     });
 }
 function writeTheFile(fileName, data) {
-    fs.writeFile(`./${fileName.data}`) => {
+    fs.writeFile((`./${fileName.data}`).then(() => {
         if (err) {
             return console.error(err)
         }
         else {
             console.log("success!");
         }
-    })
+    }))
 }
+
 function init() {
-    inquirer.prompt(questions).then(answers) => {
+    inquirer.prompt(questions).then((answers) => {
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         employees.push(manager);
         switch (answers.roleToAdd) {

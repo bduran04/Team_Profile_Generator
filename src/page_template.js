@@ -1,5 +1,3 @@
-const generateTeam = team => {
-
     const generateManager = manager => {
         return `
         <div class="card employee-card">
@@ -53,7 +51,6 @@ const generateTeam = team => {
     </div>
         `;
     }
-};
 
 const generateTeam = employees => {
     let cards = '';
