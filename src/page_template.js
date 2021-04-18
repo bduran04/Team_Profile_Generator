@@ -56,13 +56,13 @@ const generateTeam = employees => {
     let cards = '';
     for (let i = 0; i < employees.length; i++) {
         switch (employees[i].getRole()) {
-            case Manager:
+            case "Manager":
                 cards.concat(generateManager(employees[i]));
                 break;
-            case Engineer:
+            case "Engineer":
                 cards.concat(generateEngineer(employees[i]));
                 break;
-            case Intern: 
+            case "Intern": 
                 cards.concat(generateIntern(employees[i]));
                 break;
         }

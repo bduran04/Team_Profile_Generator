@@ -111,14 +111,13 @@ function internQuestions() {
     });
 }
 function writeTheFile(fileName, data) {
-    fs.writeFile((`./${fileName.data}`).then(() => {
-        if (err) {
-            return console.error(err)
-        }
-        else {
-            console.log("success!");
-        }
-    }))
+try {
+    fs.writeFile(`./${fileName.data}.html`, data, () => {
+        console.log('success')
+    })
+} catch (err) {
+    console.error(err)
+}
 }
 
 function init() {
